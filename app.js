@@ -31,7 +31,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (qsBtn) qsBtn.addEventListener('click', () => alert('Quick Stats coming soon'));
 
   // POS logic
-  const menuData = {"restaurant_name":"The Royal Dhamrai Restaurant","contact":{"phones":["01722-347072","01965-890812"],"address":"Area-Dhulivita Bus Stand, opposite ACME Gate No: 5, Dhamrai, Dhaka"},"menu":[{"category":"Appetizers & Snacks","items":[{"name":"French Fries","price":99},{"name":"Chicken Fry (1pc)","price":99},{"name":"Potato Wedges (10pcs)","price":120},{"name":"KFC Style Chicken Fry (1pc)","price":110},{"name":"Wonton (6pcs)","price":150},{"name":"Chicken Spring Roll (6pcs)","price":150},{"name":"Nachos","price":150},{"name":"Meat Box","price":180},{"name":"Student Meat Box","price":120},{"name":"Chicken Shawarma","price":160}]},{"category":"Royal Burgers","items":[{"name":"Chicken Burger","price":140},{"name":"Naga Burger","price":180},{"name":"BBQ Burger","price":180},{"name":"Double Delight Burger","price":250},{"name":"Mini Burger","price":99},{"name":"The Royal Special Burger","price":350},{"name":"Beef Cheeses Burger","price":280}]},{"category":"Premium Pizza","items":[{"name":"4 Season Pizza","variants":[{"size":"8\"","price":320},{"size":"10\"","price":450},{"size":"12\"","price":600}]},{"name":"Cheese Overload Pizza","variants":[{"size":"8\"","price":400},{"size":"10\"","price":530},{"size":"12\"","price":700}]},{"name":"Mexican Pizza","variants":[{"size":"8\"","price":300},{"size":"10\"","price":450},{"size":"12\"","price":550}]},{"name":"BBQ Pizza","variants":[{"size":"8\"","price":450},{"size":"10\"","price":550},{"size":"12\"","price":660}]},{"name":"Dhamrai Special Pizza","variants":[{"size":"8\"","price":500},{"size":"10\"","price":660},{"size":"12\"","price":800}]},{"name":"Margarita Pizza","variants":[{"size":"8\"","price":250},{"size":"10\"","price":400},{"size":"12\"","price":450}]}]},{"category":"Noodles & Pasta","items":[{"name":"Chicken Pasta","price":160},{"name":"Cheese & Chicken Pasta","price":220},{"name":"Naga Pasta","price":180},{"name":"White Sauce Pasta","price":150},{"name":"BBQ Pasta","price":200},{"name":"Oven Baked Pasta","price":180},{"name":"Chicken Noodles","variants":[{"portion":"1:1","price":120},{"portion":"1:2","price":200}]},{"name":"Vegetable Noodles","variants":[{"portion":"1:1","price":99},{"portion":"1:2","price":170}]},{"name":"Egg Noodles","variants":[{"portion":"1:1","price":99},{"portion":"1:2","price":170}]},{"name":"Thai Noodles","portion":"1:3","price":350},{"name":"Mixed Noodles","portion":"1:3","price":320}]},{"category":"Soup & Crispy Chicken","items":[{"name":"Thai Soup","portion":"1:1","price":140},{"name":"Corn Soup","portion":"1:1","price":120},{"name":"Royal Special Soup","portion":"1:1","price":160},{"name":"Thai Chicken Fry (8pcs)","price":420},{"name":"Bangkok Chicken Fry (8pcs)","price":450},{"name":"Spring Chicken Fry (8pcs)","price":350},{"name":"Naga Wings","price":200},{"name":"BBQ Wings","price":220}]},{"category":"Royal Set Menus","items":[{"name":"Set 1: Royal Delight","description":"Royal Fried Rice, Vegetable, 1pc Chicken Fry, Salad","price":189},{"name":"Set 2: Classic Combo","description":"Fried Rice, Vegetable, 2pcs Chicken Fry, Chicken Masala, Soft Drinks","price":350},{"name":"Set 3: Tandoori Feast","description":"Fried Rice, Vegetable, Tandoori Chicken, Soft Drinks, Water","price":380},{"name":"Set 4: Chili Fusion","description":"Fried Rice, Vegetable, Chicken Chili Onion, Water","price":220},{"name":"Set 5: Prawn Special","description":"Fried Rice, Vegetable, Prawn Masala, Soft Drinks","price":260},{"name":"Set 6: Traditional Khichuri","description":"Bhuna Khichuri, Chicken Masala, Salad, Achar, Water","price":170}]},{"category":"Rice & Curry Specials","items":[{"name":"Egg Fried Rice","portion":"1:3","price":280},{"name":"Chicken Fried Rice","portion":"1:3","price":320},{"name":"The Royal Signature Fried Rice","portion":"1:3","price":380},{"name":"Chicken Masala","price":350},{"name":"Chicken Chili Onion","price":320},{"name":"Foyel Chicken","price":400},{"name":"Prawn Masala","price":390},{"name":"Garlic Mushroom Prawn","price":390},{"name":"Chicken Sizzling","price":320},{"name":"Beef/Prawn Sizzling","price":380}]},{"category":"Tandoori & Nan","items":[{"name":"Butter Nan","price":50},{"name":"Garlic Nan","price":80},{"name":"Tandoori Chicken","price":130}]},{"category":"Beverages & Refreshments","items":[{"name":"Hot Coffee","price":80},{"name":"Cold Coffee","price":120},{"name":"Black Coffee","price":60},{"name":"Lassi","price":100},{"name":"Milk Shake","price":150},{"name":"Oreo Shake","price":140},{"name":"Ocean Blue","price":120},{"name":"Fresh Fruit Juice","variants":[{"type":"Regular","price":120},{"type":"Special","price":150}]},{"name":"Soft Drinks","price":25},{"name":"Mineral Water","price":20}]}]};
+  const menuData = {"restaurant_name":"The Royal Dhamrai Restaurant","contact":{"phones":["01722-347072","01965-890812"],"address":"Area-Dhulivita Bus Stand, opposite ACME Gate No: 5, Dhamrai, Dhaka"},"menu":[{"category":"Appetizers & Snacks","items":[{"name":"French Fries","price":99},{"name":"Chicken Fry (1pc)","price":99},{"name":"Potato Wedges (10pcs)","price":120},{"name":"KFC Style Chicken Fry (1pc)","price":110},{"name":"Wonton (6pcs)","price":150},{"name":"Chicken Spring Roll (6pcs)","price":150},{"name":"Nachos","price":150},{"name":"Meat Box","price":180},{"name":"Student Meat Box","price":120},{"name":"Chicken Shawarma","price":160}]},{"category":"Royal Burgers","items":[{"name":"Chicken Burger","price":140},{"name":"Naga Burger","price":180},{"name":"BBQ Burger","price":180},{"name":"Double Delight Burger","price":250},{"name":"Mini Burger","price":99},{"name":"The Royal Special Burger","price":350},{"name":"Beef Cheeses Burger","price":280}]},{"category":"Premium Pizza","items":[{"name":"4 Season Pizza","variants":[{"size":"8\"","price":320},{"size":"10\"","price":450},{"size":"12\"","price":600}]},{"name":"Cheese Overload Pizza","variants":[{"size":"8\"","price":400},{"size":"10\"","price":530},{"size":"12\"","price":700}]},{"name":"Mexican Pizza","variants":[{"size":"8\"","price":300},{"size":"10\"","price":450},{"size":"12\"","price":550}]},{"name":"BBQ Pizza","variants":[{"size":"8\"","price":450},{"size":"10\"","price":550},{"size":"12\"","price":660}]},{"name":"Dhamrai Special Pizza","variants":[{"size":"8\"","price":500},{"size":"10\"","price":660},{"size":"12\"","price":800}]},{"name":"Margarita Pizza","variants":[{"size":"8\"","price":250},{"size":"10\"","price":400},{"size":"12\"","price":450}]}]},{"category":"Noodles & Pasta","items":[{"name":"Chicken Pasta","price":160},{"name":"Cheese & Chicken Pasta","price":220},{"name":"Naga Pasta","price":180},{"name":"White Sauce Pasta","price":150},{"name":"BBQ Pasta","price":200},{"name":"Oven Baked Pasta","price":180},{"name":"Chicken Noodles","variants":[{"portion":"1:1","price":120},{"portion":"1:2","price":200}]},{"name":"Vegetable Noodles","variants":[{"portion":"1:1","price":99},{"portion":"1:2","price":170}]},{"name":"Egg Noodles","variants":[{"portion":"1:1","price":99},{"portion":"1:2","price":170}]},{"name":"Thai Noodles","portion":"1:3","price":350},{"name":"Mixed Noodles","portion":"1:3","price":320}]},{"category":"Soup & Crispy Chicken","items":[{"name":"Thai Soup","portion":"1:1","price":140},{"name":"Corn Soup","portion":"1:1","price":120},{"name":"Royal Special Soup","portion":"1:1","price":160},{"name":"Thai Chicken Fry (8pcs)","price":420},{"name":"Bangkok Chicken Fry (8pcs)","price":450},{"name":"Spring Chicken Fry (8pcs)","price":350},{"name":"Naga Wings","price":200},{"name":"BBQ Wings","price":220}]},{"category":"Royal Set Menus","items":[{"name":"Set 1: Royal Delight","description":"Royal Fried Rice, Vegetable, 1pc Chicken Fry, Salad","price":189},{"name":"Set 2: Classic Combo","description":"Fried Rice, Vegetable, 2pcs Chicken Fry, Chicken Masala, Soft Drinks","price":350},{"name":"Set 3: Tandoori Feast","description":"Fried Rice, Vegetable, Tandoori Chicken, Soft Drinks, Water","price":380},{"name":"Set 4: Chili Fusion","description":"Fried Rice, Vegetable, Chicken Chili Onion, Water","price":220},{"name":"Set 5: Prawn Special","description":"Fried Rice, Vegetable, Prawn Masala, Soft Drinks","price":260},{"name":"Set 6: Traditional Khichuri","description":"Bhuna Khichuri, Chicken Masala, Salad, Achar, Water","price":170}]},{"category":"Rice & Curry Specials","items":[{"name":"Egg Fried Rice","portion":"1:3","price":280},{"name":"Chicken Fried Rice","portion":"1:3","price":320},{"name":"The Royal Signature Fried Rice","portion":"1:3","price":380},{"name":"Chicken Masala","price":350},{"name":"Chicken Chili Onion","price":320},{"name":"Foyel Chicken","price":400},{"name":"Prawn Masala","price":390},{"name":"Garlic Mushroom Prawn","price":390},{"name":"Chicken Sizzling","price":320},{"name":"Beef/Prawn Sizzling","price":380}]},{"category":"Tandoori & Nan","items":[{"name":"Butter Nan","price":50},{"name":"Garlic Nan","price":80},{"name":"Tandoori Chicken","price":130}]},{"category":"Beverages","items":[{"name":"Hot Coffee","price":80},{"name":"Cold Coffee","price":120},{"name":"Black Coffee","price":60},{"name":"Lassi","price":100},{"name":"Milk Shake","price":150},{"name":"Oreo Shake","price":140},{"name":"Ocean Blue","price":120},{"name":"Fresh Fruit Juice","variants":[{"type":"Regular","price":120},{"type":"Special","price":150}]},{"name":"Soft Drinks","price":25},{"name":"Mineral Water","price":20}]}]};
+
+  const categories = [
+    'All',
+    'Appetizers & Snacks',
+    'Royal Burgers',
+    'Premium Pizza',
+    'Noodles & Pasta',
+    'Soup & Crispy Chicken',
+    'Royal Set Menus',
+    'Rice & Curry Specials',
+    'Tandoori & Nan',
+    'Beverages',
+  ];
 
   // Flatten menu into selectable items
   let idCounter = 1;
@@ -41,16 +54,41 @@ document.addEventListener('DOMContentLoaded', () => {
       if (it.variants) {
         it.variants.forEach(v => {
           const label = v.size || v.portion || v.type;
-          menuItems.push({ id: idCounter++, name: `${it.name} (${label})`, price: v.price, cat: cat.category, desc: it.description || '' });
+          menuItems.push({ id: idCounter++, name: `${it.name} (${label})`, price: v.price, category: cat.category, desc: it.description || '' });
         });
       } else {
         const suffix = it.portion ? ` (${it.portion})` : '';
-        menuItems.push({ id: idCounter++, name: `${it.name}${suffix}`, price: it.price, cat: cat.category, desc: it.description || '' });
+        menuItems.push({ id: idCounter++, name: `${it.name}${suffix}`, price: it.price, category: cat.category, desc: it.description || '' });
       }
     });
   });
 
-  const categories = ['All', ...menuData.menu.map(c => c.category)];
+  const catEmoji = {
+    'Appetizers & Snacks': '🍟',
+    'Royal Burgers': '🍔',
+    'Premium Pizza': '🍕',
+    'Noodles & Pasta': '🍜',
+    'Soup & Crispy Chicken': '🍗',
+    'Royal Set Menus': '🍱',
+    'Rice & Curry Specials': '🍚',
+    'Tandoori & Nan': '🫓',
+    'Beverages': '🥤',
+  };
+  function itemEmoji(name) {
+    const n = name.toLowerCase();
+    if (n.includes('pizza')) return '🍕';
+    if (n.includes('burger')) return '🍔';
+    if (n.includes('coffee')) return '☕';
+    if (n.includes('noodle') || n.includes('pasta')) return '🍜';
+    if (n.includes('rice')) return '🍚';
+    if (n.includes('soup')) return '🥣';
+    if (n.includes('fries') || n.includes('wedges')) return '🍟';
+    if (n.includes('water')) return '💧';
+    if (n.includes('juice') || n.includes('shake') || n.includes('lassi')) return '🥤';
+    if (n.includes('chicken') || n.includes('wings')) return '🍗';
+    if (n.includes('nan') || n.includes('tandoori')) return '🫓';
+    return '🍽️';
+  }
 
   const cart = {};
   const menuGrid = document.getElementById('menu-grid');
@@ -67,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = document.createElement('button');
       btn.className = 'pill' + (c === 'All' ? ' active' : '');
       btn.dataset.cat = c;
-      btn.textContent = c;
+      btn.textContent = (catEmoji[c] ? catEmoji[c] + ' ' : '') + c;
       btn.addEventListener('click', () => {
         container.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
@@ -81,18 +119,18 @@ document.addEventListener('DOMContentLoaded', () => {
     menuGrid.innerHTML = '';
     const groups = cat === 'All' ? categories.slice(1) : [cat];
     groups.forEach(g => {
-      const items = menuItems.filter(m => m.cat === g);
+      const items = menuItems.filter(m => m.category === g);
       if (!items.length) return;
       const header = document.createElement('h3');
       header.className = 'cat-header';
-      header.textContent = g;
+      header.textContent = (catEmoji[g] ? catEmoji[g] + ' ' : '') + g;
       menuGrid.appendChild(header);
       const grid = document.createElement('div');
       grid.className = 'menu-grid-inner';
       items.forEach(m => {
         const card = document.createElement('div');
         card.className = 'menu-card';
-        card.innerHTML = `<span class="name">${m.name}</span><span class="price">৳${m.price}</span><button class="add-btn" data-id="${m.id}">+</button>`;
+        card.innerHTML = `<span class="emoji">${itemEmoji(m.name)}</span><span class="name">${m.name}</span><div class="menu-card-footer"><span class="price">৳${m.price}</span><button class="add-btn" data-id="${m.id}" aria-label="Add ${m.name} to order">+</button></div>`;
         card.querySelector('.add-btn').addEventListener('click', (e) => { e.stopPropagation(); addToCart(m.id); });
         grid.appendChild(card);
       });
