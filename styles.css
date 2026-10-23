@@ -121,3 +121,8 @@ h1,h2,h3,.restaurant-name{font-family:'Poppins',sans-serif;}
 .pill-pill { display:inline-block; padding:.25rem .75rem; border-radius:9999px; font-size:.75rem; font-weight:600; }
 .food-card { background:#fff; border:1px solid #e2e8f0; border-radius:.75rem; padding:.5rem; }
 
+
+#app-content, main { padding-bottom: 120px !important; }
+.cart-panel { margin-bottom: 96px; max-height: 60vh; overflow-y: auto; }
+.bottom-nav { z-index: 50; backdrop-filter: blur(12px); box-shadow: 0 -2px 10px rgba(0,0,0,.1); }
+
