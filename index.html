@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1e293b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Royal POS" />
+  <title>Royal POS</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { brand: '#1e293b' } } } }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased">
+  <div id="app" class="app-shell">
+    <header class="app-bar">
+      <div class="flex flex-col leading-tight">
+        <span class="restaurant-name bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent font-extrabold tracking-wide">The Royal Dhamrai</span>
+        <span id="screen-title" class="screen-title">POS / Orders</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span id="current-time" class="time-pill">--:--</span>
+        <button id="quick-stats-btn" class="icon-btn" aria-label="Quick Stats">
+          <i data-lucide="bar-chart-3"></i>
+        </button>
+      </div>
+    </header>
+
+    <main id="content" class="app-content">
+      <!-- Home / Executive Summary -->
+      <section class="screen active" data-screen="home">
+        <div class="p-4">
+          <!-- Hero Promo Banner -->
+          <div class="hero-banner relative rounded-2xl overflow-hidden mb-4">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Pizza" class="w-full h-36 object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center p-4">
+              <div>
+                <p class="text-white text-lg font-bold">Royal Dhamrai Special Offer</p>
+                <p class="text-amber-300 font-semibold">10% off Dine-in</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="text-xl font-bold mb-3">Executive Summary</h2>
+
+          <div class="grid grid-cols-2 gap-3 mb-4">
+            <div class="glass-card">
+              <div class="icon-badge bg-green-100 text-green-600">💰</div>
+              <div class="home-val">৳450.00</div>
+              <div class="home-label">Today's Sales</div>
+            </div>
+            <div class="glass-card">
+              <div class="icon-badge bg-red-100 text-red-600">💸</div>
+              <div class="home-val">৳120.00</div>
+              <div class="home-label">Today's Expenses</div>
+            </div>
+            <div class="glass-card">
+              <div class="icon-badge bg-blue-100 text-blue-600">👥</div>
+              <div class="home-val">34</div>
+              <div class="home-label">Customers Served</div>
+            </div>
+            <div class="glass-card">
+              <div class="icon-badge bg-purple-100 text-purple-600">🛵</div>
+              <div class="home-val">8</div>
+              <div class="home-label">Home Deliveries</div>
+            </div>
+          </div>
+
+          <div class="glass-card mb-4">
+            <h3 class="font-semibold mb-2">📅 This Month</h3>
+            <div class="report-row"><span>Sales</span><span>৳12,450.00</span></div>
+            <div class="report-row"><span>Expenses</span><span>৳3,200.00</span></div>
+            <div class="report-row total"><span>Net Profit</span><span>৳9,250.00</span></div>
+            <div class="mt-3">
+              <div class="flex gap-2">
+                <span class="pill-pill bg-green-100 text-green-700">Cash 60%</span>
+                <span class="pill-pill bg-blue-100 text-blue-700">bKash 40%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-card mb-4">
+            <h3 class="font-semibold mb-2">⚠️ Stock Warnings</h3>
+            <div class="alert-row"><span>Cheese low: 1.5 kg remaining</span><a href="#" class="restock-link" data-go="inventory">Restock</a></div>
+            <div class="alert-row"><span>Pizza Box: 15 pcs remaining</span><a href="#" class="restock-link" data-go="inventory">Restock</a></div>
+          </div>
+
+          <div class="mb-4">
+            <h3 class="font-semibold mb-2">🔥 Top Selling Items</h3>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80" alt="BBQ Pizza" class="w-full h-24 object-cover rounded-xl" />
+                <p class="text-xs font-semibold mt-1">BBQ Pizza 10"</p>
+                <p class="text-xs text-amber-600 font-bold">৳550</p>
+              </div>
+              <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80" alt="Chicken Burger" class="w-full h-24 object-cover rounded-xl" />
+                <p class="text-xs font-semibold mt-1">Chicken Burger</p>
+                <p class="text-xs text-amber-600 font-bold">৳140</p>
+              </div>
+              <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=400&q=80" alt="Creamy Pasta" class="w-full h-24 object-cover rounded-xl" />
+                <p class="text-xs font-semibold mt-1">Creamy Pasta</p>
+                <p class="text-xs text-amber-600 font-bold">৳160</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <button class="btn-gradient" data-go="orders">+ New Order (POS)</button>
+            <button class="btn-gradient" data-go="expenses">+ Add Expense</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="orders">
+        <div class="pos-layout">
+          <!-- Menu Panel -->
+          <div class="menu-panel">
+            <div class="category-pills" id="category-pills"></div>
+            <div class="menu-grid" id="menu-grid"></div>
+          </div>
+
+          <!-- Cart Panel -->
+          <div class="cart-panel">
+            <div class="cart-header">
+              <h3 class="font-semibold">Current Order</h3>
+              <button id="clear-cart" class="text-xs text-red-500 font-medium">Clear</button>
+            </div>
+
+            <div class="cart-items" id="cart-items"></div>
+
+            <div class="cart-options">
+              <div class="option-group">
+                <label>Order Type</label>
+                <select id="order-type">
+                  <option>Dine-In</option>
+                  <option>Takeaway</option>
+                  <option>Delivery</option>
+                </select>
+              </div>
+              <div class="option-group">
+                <label>Table</label>
+                <select id="table-no">
+                  <option>Table 1</option>
+                  <option>Table 2</option>
+                  <option>Table 3</option>
+                  <option>Table 4</option>
+                  <option>Table 5</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="totals">
+              <div class="row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+              <div class="row">
+                <span>Discount</span>
+                <input id="discount" type="number" min="0" value="0" step="0.01" class="disc-input" />
+              </div>
+              <div class="row"><span>Tax (5%)</span><span id="tax">$0.00</span></div>
+              <div class="row total"><span>Total</span><span id="total">$0.00</span></div>
+            </div>
+
+            <div class="action-row">
+              <button id="print-kot" class="btn-secondary">Print KOT</button>
+              <button id="complete-payment" class="btn-primary">Complete Payment</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="inventory">
+        <div class="p-4">
+          <h2 class="text-xl font-bold mb-3">Inventory</h2>
+          <div class="inv-card">
+            <table class="inv-table">
+              <thead><tr><th>Item</th><th>Stock</th><th>Unit</th><th>Status</th></tr></thead>
+              <tbody id="inv-tbody"></tbody>
+            </table>
+          </div>
+          <button id="add-stock-btn" class="btn-primary full-btn">+ Add Stock</button>
+
+          <div class="recipe-card">
+            <h3 class="font-semibold mb-1">Recipe Deduction Demo</h3>
+            <p class="text-sm text-slate-500 mb-3">Selling 1x Chicken Burger automatically deducts 0.15 kg Raw Chicken and 1 Burger Bun from stock.</p>
+            <button id="deduct-btn" class="btn-secondary full-btn">Test Deduction (1x Chicken Burger)</button>
+          </div>
+        </div>
+      </section>
+      <section class="screen" data-screen="expenses">
+        <div class="p-4">
+          <h2 class="text-xl font-bold mb-3">Expenses & Finance</h2>
+
+          <div class="summary-grid">
+            <div class="sum-card"><span class="sum-label">Total Sales Today</span><span class="sum-value" id="sum-sales">$1,280.00</span></div>
+            <div class="sum-card"><span class="sum-label">Total Expenses Today</span><span class="sum-value" id="sum-expenses">$0.00</span></div>
+            <div class="sum-card"><span class="sum-label">Net Profit</span><span class="sum-value" id="sum-profit">$1,280.00</span></div>
+          </div>
+
+          <div class="exp-form">
+            <h3 class="font-semibold mb-2">Add Expense</h3>
+            <select id="exp-cat" class="full-select">
+              <option>Groceries</option><option>Utility</option><option>Waste</option><option>Salary Advance</option>
+            </select>
+            <input id="exp-amount" type="number" min="0" step="0.01" placeholder="Amount" class="full-input" />
+            <input id="exp-note" type="text" placeholder="Note" class="full-input" />
+            <button id="exp-add" class="btn-primary full-btn">Add Expense</button>
+          </div>
+
+          <div class="exp-history">
+            <h3 class="font-semibold mb-2">Recent Expenses</h3>
+            <ul id="exp-list" class="exp-list"></ul>
+          </div>
+
+          <button id="cashout-btn" class="btn-secondary full-btn">Register Closing / Cash Out</button>
+        </div>
+      </section>
+      <section class="screen" data-screen="staff">
+        <div class="p-4">
+          <h2 class="text-xl font-bold mb-3">Staff & Salary</h2>
+          <div id="staff-list" class="staff-list"></div>
+
+          <div class="ledger-card">
+            <h3 class="font-semibold mb-2">Salary Ledger (Current Month)</h3>
+            <table class="inv-table">
+              <thead><tr><th>Name</th><th>Base</th><th>Advance</th><th>Net Payable</th></tr></thead>
+              <tbody id="ledger-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Add Stock Modal -->
+    <div id="stock-modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-box">
+        <h3 class="font-semibold mb-3">Add Stock</h3>
+        <select id="stock-item" class="full-select"></select>
+        <input id="stock-amount" type="number" min="0" step="1" placeholder="Amount" class="full-input" />
+        <div class="modal-actions">
+          <button id="stock-cancel" class="btn-secondary">Cancel</button>
+          <button id="stock-save" class="btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cash Out Modal -->
+    <div id="cashout-modal" class="modal hidden">
+      <div class="modal-backdrop"></div>
+      <div class="modal-box">
+        <h3 class="font-semibold mb-3">Register Closing</h3>
+        <div class="row"><span>Cash Collected</span><span id="cash-cash">$800.00</span></div>
+        <div class="row"><span>Digital (Bkash/Nagad)</span><span id="cash-digital">$480.00</span></div>
+        <div class="row total"><span>Total</span><span id="cash-total">$1,280.00</span></div>
+        <div class="modal-actions" style="margin-top:12px;">
+          <button id="cashout-cancel" class="btn-secondary">Cancel</button>
+          <button id="cashout-confirm" class="btn-primary">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+
+      <button class="nav-item active" data-nav="home"><i data-lucide="home"></i><span>Home</span></button>
+      <button class="nav-item" data-nav="orders"><i data-lucide="shopping-cart"></i><span>POS / Orders</span></button>
+      <button class="nav-item" data-nav="inventory"><i data-lucide="package"></i><span>Inventory</span></button>
+      <button class="nav-item" data-nav="expenses"><i data-lucide="wallet"></i><span>Expenses</span></button>
+      <button class="nav-item" data-nav="staff"><i data-lucide="users"></i><span>Staff</span></button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
